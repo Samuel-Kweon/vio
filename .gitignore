@@ -1,0 +1,9 @@
+build/
+data/
+*.o
+*.obj
+.vscode/
+.idea/
+*.swp
+__pycache__/
+*.pyc
