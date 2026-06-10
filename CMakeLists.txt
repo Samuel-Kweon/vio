@@ -12,7 +12,7 @@ endif()
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
 
-add_library(vio_core src/ekf.cpp src/kalman.cpp src/transforms.cpp)
+add_library(vio_core src/ekf.cpp src/kalman.cpp src/transforms.cpp src/imu_reader.cpp src/imu_integrator.cpp src/calibration.cpp)
 
 target_include_directories(vio_core PUBLIC include)
 target_link_libraries(vio_core PUBLIC Eigen3::Eigen ${OpenCV_LIBS})
@@ -23,3 +23,11 @@ target_link_libraries(run_vio vio_core)
 add_executable(test_transforms tests/test_transforms.cpp)
 target_link_libraries(test_transforms vio_core)
 
+add_executable(test_imu_reader apps/test_imu_reader.cpp)
+target_link_libraries(test_imu_reader vio_core)
+
+add_executable(test_imu_integrator apps/test_imu_integrator.cpp)
+target_link_libraries(test_imu_integrator vio_core)
+
+add_executable(test_calibration apps/test_calibration.cpp)
+target_link_libraries(test_calibration vio_core)

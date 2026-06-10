@@ -6,10 +6,6 @@
 class KalmanFilter{
 public:
 
-    using MotionFn        = std::function<Eigen::VectorXd(const Eigen::VectorXd&, const Eigen::VectorXd&)>;
-    using MotionJacobian  = std::function<Eigen::MatrixXd(const Eigen::MatrixXd&, const Eigen::VectorXd&)>;
-    using MeasureFn       = std::function<Eigen::VectorXd(const Eigen::VectorXd&)>;
-    using MeasureJacobian = std::function<Eigen::MatrixXd(const Eigen::MatrixXd&)>;   
 
     KalmanFilter(const Eigen::VectorXd& x_init, const Eigen::MatrixXd& P_init,
                  const Eigen::MatrixXd& F, const Eigen::MatrixXd& H, const Eigen::MatrixXd& Q,
